@@ -1,0 +1,129 @@
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDsTdQsdchF7fhbFrJBZ2XT3a9eVtVr5QE"></script>
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("mapsPane"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<style>
+    .bar:hover {
+        border-style: none   none none solid;
+    }
+</style>
+
+<div style="display:block;height:58vh;background-color:">
+    <div id="" style="float:left;width:70%;height:100%;background-color:yellow">
+        <div id="player"></div>
+    </div>
+    <div id="" style="float:left;width:30%;height:100%;background-color:">
+        VIDEO NOTES
+        <ul>
+            <li>2:00 - Notice detail x</li>
+            <li>2:50 - Notice detail y</li>
+        </ul>
+    </div>
+</div>
+
+<div style="display:block;height:40vh;background-color:">
+    <div id="" style="float:left;width:50%;height:100%;background-color:">
+
+        <div style="width:100%;height:50%;background-color:;overflow:auto;">Timeline
+            <div style="display:block;height:20px;width:200%;margin-left:50px;background-color:#EEEEEE">
+                <div class="interval" style="float:left;">0:00</div>
+                <div class="interval" style="float:left;margin-left:100px">6:05 PM</div>
+                <div class="interval" style="float:left;margin-left:100px">6:10 PM</div>
+                <div class="interval" style="float:left;margin-left:100px">6:15 PM</div>
+                <div class="interval" style="float:left;margin-left:100px">6:20 PM</div>
+
+            </div>
+            <div  style="height:20px;width:250px;margin-left:100px;background-color:#A1D490">
+                <div style="float:left;height:20px;width:50px" class="bar"></div>
+                <div style="float:left;height:20px;width:50px" class="bar"></div>
+                <div style="float:left;height:20px;width:50px" class="bar"></div>
+                <div style="float:left;;height:20px;width:50px" class="bar"></div>
+                <div style="float:left;;height:20px;width:50px" class="bar"></div>
+            </div>
+            <div class="bar" style="height:20px;width:335px;margin-left:50px;background-color:#C390D4"></div>
+            <div class="bar" style="height:20px;width:335px;margin-left:50px;background-color:#90C3D4"></div>
+            <div class="bar" style="height:20px;width:500px;margin-left:300px;background-color:#D4A190"></div>
+            <div class="bar" style="height:20px;width:600px;margin-left:280px;background-color:#90A1D4"></div>
+            <div class="bar" style="height:20px;width:500px;margin-left:1000px;background-color:#C3D490"></div>
+            <div class="bar" style="height:20px;width:500px;margin-left:200px;background-color:#D3F2EA"></div>
+        </div>
+        <div id="playlist" style="width:100%;height:50%;background-color:">Playlist
+            <div class="playListEntry" style=";background-color:#E1E5E6">
+                <div style="display:inline;background-color:#A1D490;width:50px;">dddd</div>
+                <div style="display:inline">Some video</div>
+                <div style="margin-left:50px;display:inline">4:08</div>
+            </div>
+            <div class="playListEntry" style=";background-color:#E1E5E6">
+                <div style="display:inline;background-color:#C390D4;width:50px;">dddd</div>
+                <div style="display:inline">Some video</div>
+                <div style="margin-left:50px;display:inline">4:08</div>
+            </div>
+            <div class="playListEntry" style=";background-color:#E1E5E6">
+                <div style="display:inline;background-color:#90C3D4;width:50px;">dddd</div>
+                <div style="display:inline">Some video</div>
+                <div style="margin-left:50px;display:inline">4:08</div>
+            </div>
+            <div class="playListEntry" style=";background-color:#E1E5E6">
+                <div style="display:inline;background-color:#D4A190;width:50px;">dddd</div>
+                <div style="display:inline">Some video</div>
+                <div style="margin-left:50px;display:inline">4:08</div>
+            </div>
+        </div>
+    </div>
+    <div id="mapsPane" style="float:left;width:50%;height:100%;background-color:blue">
+        GOOGLE MAPS
+    </div>
+
+</div>
+
+<script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '390',
+          width: '640',
+          videoId: 'M7lc1UVf-VE',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>

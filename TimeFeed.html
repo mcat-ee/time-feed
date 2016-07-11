@@ -1,0 +1,56 @@
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDsTdQsdchF7fhbFrJBZ2XT3a9eVtVr5QE"></script>
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(51.508742,-0.120850),
+    zoom:5,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("mapPane"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<style>
+    .bar:hover {
+        border-style: none   none none solid;
+    }
+</style>
+
+<div style="display:block;height:50%;"></div>
+<div id="leftPane">
+    <div id="timeLine" style="display:block;height:20vh;float:left;width:45vw;background-color:#EEEEEE">
+        <!--- Test data --->
+        <div style="height:20px;width:335px;margin-left:50px;background-color:#EEEEEE">
+            <div class="interval" style="display:inline;width:100px">0:00</div>
+            <div class="interval" style="display:inline;margin-left:100px">6:05 PM</div>
+            <div class="interval" style="display:inline;margin-left:100px">6:10 PM</div>
+            <div class="interval" style="display:inline;margin-left:100px">6:15 PM</div>
+            <div class="interval" style="display:inline;margin-left:100px">6:20 PM</div>
+
+        </div>
+
+        <div class="bar" style="height:20px;width:250px;margin-left:100px;background-color:#A1D490"></div>
+        <div class="bar" style="height:20px;width:335px;margin-left:50px;background-color:#C390D4"></div>
+
+    </div>
+
+    <div id="lowerHalf" style="width:45vw">
+        <div id="playList" style="width:45vw;height:30vh;display:inline;">
+            <div class="playListEntry" style=";background-color:#E1E5E6">
+                <div style="display:inline;background-color:#A1D490;width:50px;">dddd</div>
+                <div style="display:inline">Some video</div>
+                <div style="margin-left:50px;display:inline">4:08</div>
+            </div>
+            <div class="playListEntry" style=";background-color:#E1E5E6">
+                <div style="display:inline;background-color:#C390D4;width:50px;">dddd</div>
+                <div style="display:inline">Some video</div>
+                <div style="margin-left:50px;display:inline">4:08</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="mapPane" style="background-color:green;width:45vw;height:50vh"></div>
+
+<div id="derp"></div
